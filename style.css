@@ -25,6 +25,6 @@ body {
 }
 
 .sketchpad .cell {
-  border-style: solid;
+  border: 1px,solid,black;
   flex: 1 1 0%;
 }
