@@ -1,12 +1,28 @@
 //creates a default
-createGrid(16);
+let gridSizeValue = 16;
+createGrid(gridSizeValue);
+
+//When clicked on randColor randomizeColor is toggle between true/false
+let colorArray = ["black", "green", "blue", "yellow", "purple", "red", "pink"];
+let randomColor = false;
+let buttonRandColor = document.querySelector("#randColor");
+buttonRandColor.addEventListener("click", () => {
+  randomColor = !randomColor;
+  console.log(randomColor);
+});
+
+//When clicked on clear the grid will be recreated based on gridSizeValue
+let buttonClear = document.querySelector("#clear");
+buttonClear.addEventListener("click", () => {
+  createGrid(gridSizeValue);
+});
 
 //when the size input is updated it will update the grid size
 //clearing the last one and creating a new one right after
-let gridSizeInput = document.querySelector("#range");
+let gridSizeInput = document.querySelector("#sizeRange");
 gridSizeInput.addEventListener("input", (e) => {
-  console.log(parseInt(e.target.value));
-  createGrid(parseInt(e.target.value));
+  gridSizeValue = parseInt(e.target.value);
+  createGrid(gridSizeValue);
 });
 
 function createGrid(size) {
@@ -34,7 +50,14 @@ function createCell() {
   let cellDiv = document.createElement("div");
   cellDiv.className = "cell";
   cellDiv.addEventListener("mouseover", () => {
-    cellDiv.style.backgroundColor = "black";
+    if (randomColor) {
+      let color = colorArray[Math.floor(Math.random() * colorArray.length)];
+      console.log(color);
+
+      cellDiv.style.backgroundColor = color;
+    } else {
+      cellDiv.style.backgroundColor = "black";
+    }
   });
   return cellDiv;
 }

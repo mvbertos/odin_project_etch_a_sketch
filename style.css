@@ -5,7 +5,13 @@ body {
   margin: 5%;
 }
 
-.config .range {
+.config {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+
+.config div {
   display: flex;
   flex-direction: row;
   align-items: center;
