@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5%;
+}
+
+.config .range {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sketchpad {
+  border-style: solid;
+  height: 640px;
+  width: 640px;
+  display: flex;
+}
+
+.sketchpad .column {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+}
+
+.sketchpad .cell {
+  border-style: solid;
+  flex: 1 1 0%;
+}
